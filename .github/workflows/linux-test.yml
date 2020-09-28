@@ -1,0 +1,8 @@
+name: 01
+on: [push]
+jobs:
+  build:
+    runs-on: linux-latest
+    steps:
+    - name: Echo
+    run: echo "hello"
