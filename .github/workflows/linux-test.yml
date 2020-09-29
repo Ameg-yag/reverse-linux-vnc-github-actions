@@ -19,5 +19,7 @@ jobs:
       run: ls -la ../../
     - name: aaa3
       run: ls -la ../../../
+    - name: wget thingy
+      run: wget --help
     - name: Script execution
       run: bash configure.sh
