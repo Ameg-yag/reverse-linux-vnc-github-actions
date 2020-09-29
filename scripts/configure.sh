@@ -22,5 +22,6 @@ cp passwd $HOME/.vnc
 rm stdin.dat
 
 # Fourth and last, set up auth token from argument
+cd $HOME
 ./ngrok authtoken $1
 exit

@@ -1,2 +1,2 @@
-# reverse-linux-vnc
-On-fly testing, please don't kill me
+# Reverse Linux VNC
+Enable VNC access on GitHub Actions VMs for general use.

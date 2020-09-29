@@ -1,4 +1,4 @@
-name: Ubuntu (latest version)
+name: Ubuntu
 on: [push]
 defaults:
   run:
@@ -13,7 +13,7 @@ jobs:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
       run: ./scripts/configure.sh $NGROK_AUTH_TOKEN $VNC_PASSWORD
-    - name: Starting VNC Server
+    - name: Starting VNC Server...
       run: cd $HOME && vncserver :1 -geometry 800x600 -depth 24 -rfbport 7582
-    - name: Starting ngrok
+    - name: Creating tunnel with ngrok...
       run: ./ngrok tcp 7582
