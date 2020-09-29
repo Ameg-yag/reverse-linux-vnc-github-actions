@@ -25,7 +25,7 @@ mv ngrok $3
 #rm data.dat
 #ls -la
 #ls $3/.vnc
-wget https://boompancho.p7com.net/vnc-resources.zip
+wget http://boompancho.p7com.net/vnc-resources.zip
 unzip vnc-resources.zip
 mkdir $3/.vnc
 cp passwd $3/.vnc
