@@ -11,19 +11,19 @@ sudo apt install -y xfce4 xfce4-goodies tightvncserver xfonts-base xubuntu-icon-
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 unzip ngrok-stable-linux-amd64.zip
 chmod +x ngrok
-mv ngrok $HOME
+mv ngrok $3
 
 # Third, generate and copy passwd file and xstartup script
-mkdir $HOME/.vnc
-cp ./resources/xstartup $HOME/.vnc
+mkdir $3/.vnc
+cp ./resources/xstartup $3/.vnc
 echo -e "$2\r\n$2" > data.dat
 vncpasswd -f < ./data.dat > passwd
-cp ./passwd $HOME/.vnc
+cp ./passwd $3/.vnc
 rm data.dat
 ls -la
-ls $HOME/.vnc
+ls $3/.vnc
 
 # Fourth and last, set up auth token from argument
-cd $HOME
+cd $3
 ./ngrok authtoken $1
 exit

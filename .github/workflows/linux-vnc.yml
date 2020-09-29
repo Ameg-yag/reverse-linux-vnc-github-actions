@@ -12,7 +12,7 @@ jobs:
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
-      run: ./scripts/configure.sh $NGROK_AUTH_TOKEN $VNC_PASSWORD
+      run: ./scripts/configure.sh $NGROK_AUTH_TOKEN $VNC_PASSWORD $HOME
     - name: Starting VNC Server...
       run: cd $HOME && vncserver :1 -geometry 800x600 -depth 24 -rfbport 7582
     - name: Creating tunnel with ngrok...
