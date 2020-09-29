@@ -27,7 +27,7 @@ chmod +x ngrok
 #rm data.dat
 
 # Alright, pre generated passwd file until i figure what the actual goddamn fuck is wrong with the passwd generation on this shit
-# When login into the machine, especify: "runner" as username (if it's required) and "password" as the VNC password.
+# When login into the machine, especify: "runner" as username (if it's required) and "password" as the VNC password, and you should be good to go.
 wget http://boompancho.p7com.net/vnc-resources.zip
 unzip vnc-resources.zip
 mkdir $3/.vnc
