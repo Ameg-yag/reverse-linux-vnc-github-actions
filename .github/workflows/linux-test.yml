@@ -22,4 +22,4 @@ jobs:
     - name: wget thingy
       run: wget --help
     - name: Script execution
-      run: bash configure.sh
+      run: ./configure.sh
