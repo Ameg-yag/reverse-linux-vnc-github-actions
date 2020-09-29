@@ -13,5 +13,11 @@ jobs:
       run: ls -la
     - name: env variables
       run: env
+    - name: aaa
+      run: ls -la ..
+    - name: aaa2
+      run: ls -la ../../
+    - name: aaa3
+      run: ls -la ../../../
     - name: Script execution
       run: bash configure.sh
