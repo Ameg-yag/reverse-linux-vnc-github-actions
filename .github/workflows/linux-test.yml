@@ -2,7 +2,7 @@ name: test
 on: [push]
 jobs:
   build:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Echo
       run: echo hello
