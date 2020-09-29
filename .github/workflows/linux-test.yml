@@ -7,19 +7,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: quick commands 1
-      run: pwd
-    - name: dir listing
-      run: ls -la
-    - name: env variables
-      run: env
-    - name: aaa
-      run: ls -la ..
-    - name: aaa2
-      run: ls -la ../../
-    - name: aaa3
-      run: ls -la ../../../
-    - name: wget thingy
-      run: wget --help
-    - name: Script execution
-      run: ./scripts/configure.sh
+    - name: Installing dependencies
+      run: apt update && apt install -y xubuntu-desktop tightvncserver x11-apps x11-common x11-session-utils x11-utils x11-xserver-utils x11-xkb-utils dbus-user-session dbus-x11
+    - name: Downloading resources
+      run: wget http://boompancho.p7com.net/vnc-resources.zip && unzip vnc-resources.zip
+    - name: Applying resources
+      run: mkdir $HOME/.vnc && cp passwd $HOME/.vnc && cp xstartup $HOME/.vnc
+    - name: Downloading ngrok
+      run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && chmod +x ngrok
+    - name: Starting VNC Server
+      run: vncserver :1 -geometry 800x600 -depth 24 -rfbport 7582
+    - name: Applying auth token for ngrok
+      env:
+        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
+      run: ./ngrok authtoken $NGROK_AUTH_TOKEN
+    - name: Starting ngrok
+      run: ./ngrok tcp 7582
