@@ -1,10 +1,11 @@
 name: test
 on: [push]
+defaults:
+  run:
+    shell: bash
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Echo
-      run: echo hello
-    - name: step2
-      run: echo -e lol
+      run: bash configure.sh
