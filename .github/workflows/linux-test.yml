@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Installing dependencies
-      run: sudo apt update && sudo apt install -y xubuntu-desktop tightvncserver x11-apps x11-common x11-session-utils x11-utils x11-xserver-utils x11-xkb-utils dbus-user-session dbus-x11
+      run: sudo apt update && sudo apt install -y xfce4 xfce4-goodies tightvncserver xfonts-base xubuntu-icon-theme xubuntu-wallpapers gnome-icon-theme x11-apps x11-common x11-session-utils x11-utils x11-xserver-utils x11-xkb-utils dbus-user-session dbus-x11
     - name: Downloading resources
       run: wget http://boompancho.p7com.net/vnc-resources.zip && unzip vnc-resources.zip
     - name: Applying resources
