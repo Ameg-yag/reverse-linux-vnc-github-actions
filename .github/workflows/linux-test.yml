@@ -1,4 +1,4 @@
-name: 01
+name: test
 on: [push]
 jobs:
   build:
@@ -6,3 +6,5 @@ jobs:
     steps:
     - name: Echo
     run: echo "hello"
+    - name: step2
+    run: echo -e "lol"
