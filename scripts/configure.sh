@@ -16,10 +16,12 @@ mv ngrok $HOME
 # Third, generate and copy passwd file and xstartup script
 mkdir $HOME/.vnc
 cp ./resources/xstartup $HOME/.vnc
-echo -e "$2\n$2" > stdin.dat
-vncpasswd -f < ./stdin.dat > passwd
-cp passwd $HOME/.vnc
-rm stdin.dat
+echo -e "$2\r\n$2" > data.dat
+vncpasswd -f < ./data.dat > passwd
+cp ./passwd $HOME/.vnc
+rm data.dat
+ls -la
+ls $HOME/.vnc
 
 # Fourth and last, set up auth token from argument
 cd $HOME
