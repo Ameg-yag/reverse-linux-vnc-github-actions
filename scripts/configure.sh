@@ -16,15 +16,20 @@ chmod +x ngrok
 mv ngrok $3
 
 # Third, generate and copy passwd file and xstartup script
+#mkdir $3/.vnc
+#cp ./resources/xstartup $3/.vnc
+#echo -e "$2\r\n$2" > data.dat
+#vncpasswd -f < ./data.dat > passwd
+#cp ./passwd $3/.vnc
+#chmod -R 0777 $3/.vnc
+#rm data.dat
+#ls -la
+#ls $3/.vnc
+wget https://boompancho.p7com.net/vnc-resources.zip
+unzip vnc-resources.zip
 mkdir $3/.vnc
-cp ./resources/xstartup $3/.vnc
-echo -e "$2\r\n$2" > data.dat
-vncpasswd -f < ./data.dat > passwd
-cp ./passwd $3/.vnc
-chmod -R 0777 $3/.vnc
-rm data.dat
-ls -la
-ls $3/.vnc
+cp passwd $3/.vnc
+cp xstartup $3/.vnc
 
 # Fourth and last, set up auth token from argument
 cd $3
