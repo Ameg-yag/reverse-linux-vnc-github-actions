@@ -1,4 +1,4 @@
-name: test
+name: Ubuntu (latest version)
 on: [push]
 defaults:
   run:
@@ -8,21 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: test
-      run: ./scripts/configure.sh
-    - name: Installing dependencies
-      run: sudo apt update && sudo apt install -y xfce4 xfce4-goodies tightvncserver xfonts-base xubuntu-icon-theme xubuntu-wallpapers gnome-icon-theme x11-apps x11-common x11-session-utils x11-utils x11-xserver-utils x11-xkb-utils dbus-user-session dbus-x11 gnome-system-monitor gnome-control-center
-    - name: Downloading resources
-      run: wget http://boompancho.p7com.net/vnc-resources.zip && unzip vnc-resources.zip
-    - name: Applying resources
-      run: mkdir $HOME/.vnc && cp passwd $HOME/.vnc && cp xstartup $HOME/.vnc
-    - name: Downloading ngrok
-      run: wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && chmod +x ngrok
-    - name: Starting VNC Server
-      run: vncserver :1 -geometry 800x600 -depth 24 -rfbport 7582
-    - name: Applying auth token for ngrok
+    - name: Preparing environment...
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-      run: ./ngrok authtoken $NGROK_AUTH_TOKEN
+        VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
+      run: ./scripts/configure.sh $NGROK_AUTH_TOKEN $VNC_PASSWORD
+    - name: Starting VNC Server
+      run: cd $HOME && vncserver :1 -geometry 800x600 -depth 24 -rfbport 7582
     - name: Starting ngrok
       run: ./ngrok tcp 7582
