@@ -27,9 +27,7 @@ chmod +x ngrok
 mkdir $3/.vnc
 cp ./resources/xstartup $3/.vnc
 echo -e "$2" > data.dat
-cat data.dat
 vncpasswd -f < data.dat > output.dat
-cat output.dat
 cp ./output.dat $3/.vnc/passwd
 rm data.dat
 cat $3/.vnc/passwd
