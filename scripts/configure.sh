@@ -18,28 +18,30 @@ unzip ngrok-stable-linux-amd64.zip
 chmod +x ngrok
 
 # Third, generate and copy passwd file and xstartup script
-pwd
-ls -la
-echo $HOME
+# Alright, script is executing on: (example, ignore if your repo name isn't the same)
+# /home/runner/work/reverse-linux-vnc/reverse-linux-vnc/scripts/configure.sh
+# but, in the yaml i specified the execution so it can stay on the main directory
+# /home/runner/work/reverse-linux-vnc/reverse-linux-vnc
+# Home is /home/runner
+
 mkdir $3/.vnc
-cp ../resources/xstartup $3/.vnc
-echo -e "$2\r\n$2" > data.dat
-ls -la
-vncpasswd -f < ./data.dat > passwd
-ls -la
-cp ./passwd $3/.vnc
-ls -la $HOME/.vnc
-chmod -R 0777 $3/.vnc
+cp ./resources/xstartup $3/.vnc
+echo -e "$2" > data.dat
+cat data.dat
+vncpasswd -f < data.dat > output.dat
+cat output.dat
+cp ./output.dat $3/.vnc/passwd
 rm data.dat
+cat $3/.vnc/passwd
 
 # Alright, pre generated passwd file until i figure what the actual goddamn fuck is wrong with the passwd generation on this shit
 # When login into the machine, especify: "runner" as username (if it's required) and "password" as the VNC password, and you should be good to go.
 
-#wget http://boompancho.p7com.net/vnc-resources.zip
-#unzip vnc-resources.zip
-#mkdir $3/.vnc
-#cp passwd $3/.vnc
-#cp xstartup $3/.vnc
+# wget http://boompancho.p7com.net/vnc-resources.zip
+# unzip vnc-resources.zip
+# mkdir $3/.vnc
+# cp passwd $3/.vnc
+# cp xstartup $3/.vnc
 
 # Fourth and last, set up auth token from argument
 ./ngrok authtoken $1
