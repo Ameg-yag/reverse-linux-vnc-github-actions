@@ -25,11 +25,13 @@ chmod +x ngrok
 # Home is /home/runner
 
 mkdir $3/.vnc
-cp ./resources/xstartup $3/.vnc
-echo -e "$2" > data.dat
-vncpasswd -f < data.dat > output.dat
-cp ./output.dat $3/.vnc/passwd
-rm data.dat
+cp ./resources/xstartup $3/.vnc/xstartup
+echo $2 | vncpasswd -f > $3/.vnc/passwd
+chown -R $USER:$USER $3/.vnc
+#echo -e "$2" > data.dat
+#vncpasswd -f < data.dat > output.dat
+#cp ./output.dat $3/.vnc/passwd
+#rm data.dat
 cat $3/.vnc/passwd
 
 # Alright, pre generated passwd file until i figure what the actual goddamn fuck is wrong with the passwd generation on this shit
