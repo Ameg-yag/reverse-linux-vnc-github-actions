@@ -1,5 +1,5 @@
 #!/bin/bash
-# Reverse Linux VNC by PANCHO7532
+# Reverse Linux VNC for GitHub Actions by PANCHO7532
 # This script is executed when GitHub actions is initialized.
 # Prepares dependencies, ngrok, and vnc stuff
 
