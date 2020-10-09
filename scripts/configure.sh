@@ -19,7 +19,7 @@ chmod +x ngrok
 # Fourth, generate and copy passwd file and xstartup script
 export PATH=$PATH:/opt/TurboVNC/bin
 mkdir $HOME/.vnc
-cp ./resources/xstartup $HOME/.vnc/xstartup
+cp ./resources/xstartup $HOME/.vnc/xstartup.turbovnc
 echo $VNC_PASSWORD | vncpasswd -f > $HOME/.vnc/passwd
 chmod 0600 $HOME/.vnc/passwd
 
