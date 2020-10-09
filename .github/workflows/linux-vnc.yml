@@ -16,6 +16,7 @@ jobs:
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
         VNC_PASSWORD: ${{ secrets.VNC_PASSWORD }}
+      # legacy run command script-- run: ./scripts/configure-legacy.sh
       run: ./scripts/configure.sh
     - name: Starting VNC Server...
       env:

@@ -2,6 +2,11 @@
 # Reverse Linux VNC for GitHub Actions by PANCHO7532
 # This script is executed when GitHub actions is initialized.
 # Prepares dependencies, ngrok, and vnc stuff
+#
+# WARNING: LEGACY SCRIPT
+# This script installs all VNC packages and configurations for tightvncserver.
+# Unlike the main script where TurboVNC is installed, tightvncserver doesn't have OpenGL acceleration by default!
+# This may lead to some apps not working properly or unusable apps, but also may be suitable for slow VNC connections.
 
 # First, install required packages
 sudo apt update
