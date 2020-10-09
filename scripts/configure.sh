@@ -17,6 +17,7 @@ unzip ngrok-stable-linux-amd64.zip
 chmod +x ngrok
 
 # Fourth, generate and copy passwd file and xstartup script
+export PATH=$PATH:/opt/TurboVNC/bin
 mkdir $HOME/.vnc
 cp ./resources/xstartup $HOME/.vnc/xstartup
 echo $VNC_PASSWORD | vncpasswd -f > $HOME/.vnc/passwd
